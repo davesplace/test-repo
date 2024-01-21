@@ -71,7 +71,7 @@
         {
             "label": "clean",
             "type": "shell",
-            "command": "rm ${fileDirname}/${fileBasenameNoExtension}",
+            "command": "rm ${fileDirname}/a.out",
             "presentation": {
                 "echo": true,
                 "reveal": "always",
