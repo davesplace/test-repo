@@ -16,11 +16,16 @@ end
 
 //vectors and arrays.
 reg [4:0] a;
-reg [3:0] b;
-reg [0:7] c[1:0];  //creates an array of 2, 8 bit registers
+reg [3:0] b;  //bit-wise little endian.  Ends with LSB
+reg [0:7] c[1:0];  //bit-wise big endian.  Ends with MSB
 
 initial begin
     $display("a = %b, b = %b, c[0] = %b, c[1] = %b", a, b, c[0], c[1]);
-
+    a = 5'b10101;
+    b = 4'b1111;
+    c[0] = 8'bxx11_0x0x; // underscore is ignored in verilog for reading
+    c[1] = 8'b1111_0000;
+    $display("a = %b, b = %b, c[0] = %b, c[1] = %b", a, b , c[0], c[1]);
 end
+
 endmodule
