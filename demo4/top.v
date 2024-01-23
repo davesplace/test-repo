@@ -1,6 +1,7 @@
+`default_nettype none
+
 module top;
 
-// 4 fundamental types
 reg t1;
 reg t2;
 reg t3, t4;
@@ -26,6 +27,10 @@ initial begin
     c[0] = 8'bxx11_0x0x; // underscore is ignored in verilog for reading
     c[1] = 8'b1111_0000;
     $display("a = %b, b = %b, c[0] = %b, c[1] = %b", a, b , c[0], c[1]);
+    #50 b = a;  //This will only capture the bits of a that match the size of b
+    //any higher order bits will be truncated
+    $display("a = %b, b = %b, c[0] = %b, c[1] = %b", a, b , c[0], c[1]);
+
 end
 
 endmodule
