@@ -1,0 +1,77 @@
+#! /usr/local/bin/vvp
+:ivl_version "13.0 (devel)" "(s20221226-399-g151a14dfc)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/local/lib/ivl/system.vpi";
+:vpi_module "/usr/local/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/local/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/local/lib/ivl/v2005_math.vpi";
+:vpi_module "/usr/local/lib/ivl/va_math.vpi";
+S_0x55e8bc569e30 .scope module, "top" "top" 2 15;
+ .timescale 0 0;
+v0x55e8bc5909c0_0 .var "a", 0 0;
+v0x55e8bc590a80_0 .var "b", 0 0;
+v0x55e8bc590b50_0 .var "c", 0 0;
+v0x55e8bc590c50_0 .net "out", 0 0, L_0x55e8bc591060;  1 drivers
+S_0x55e8bc57cca0 .scope module, "U0" "my_logic" 2 20, 2 2 0, S_0x55e8bc569e30;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "x";
+    .port_info 1 /INPUT 1 "a";
+    .port_info 2 /INPUT 1 "b";
+    .port_info 3 /INPUT 1 "c";
+L_0x55e8bc590d20/d .functor NOT 1, v0x55e8bc5909c0_0, C4<0>, C4<0>, C4<0>;
+L_0x55e8bc590d20 .delay 1 (2,2,2) L_0x55e8bc590d20/d;
+L_0x55e8bc590eb0/d .functor AND 1, v0x55e8bc590a80_0, v0x55e8bc590b50_0, C4<1>, C4<1>;
+L_0x55e8bc590eb0 .delay 1 (5,5,5) L_0x55e8bc590eb0/d;
+L_0x55e8bc591060/d .functor OR 1, L_0x55e8bc590d20, L_0x55e8bc590eb0, C4<0>, C4<0>;
+L_0x55e8bc591060 .delay 1 (4,4,4) L_0x55e8bc591060/d;
+v0x55e8bc57ce80_0 .net "a", 0 0, v0x55e8bc5909c0_0;  1 drivers
+v0x55e8bc590520_0 .net "b", 0 0, v0x55e8bc590a80_0;  1 drivers
+v0x55e8bc5905e0_0 .net "c", 0 0, v0x55e8bc590b50_0;  1 drivers
+v0x55e8bc5906b0_0 .net "t0", 0 0, L_0x55e8bc590d20;  1 drivers
+v0x55e8bc590770_0 .net "t1", 0 0, L_0x55e8bc590eb0;  1 drivers
+v0x55e8bc590880_0 .net "x", 0 0, L_0x55e8bc591060;  alias, 1 drivers
+    .scope S_0x55e8bc569e30;
+T_0 ;
+    %vpi_call 2 24 "$display", "Time,a,b,c,out" {0 0 0};
+    %vpi_call 2 25 "$monitor", $time, "\011%d,%d,%d,%d", v0x55e8bc5909c0_0, v0x55e8bc590a80_0, v0x55e8bc590b50_0, v0x55e8bc590c50_0 {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_0x55e8bc569e30;
+T_1 ;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55e8bc5909c0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55e8bc590a80_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55e8bc590b50_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55e8bc5909c0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55e8bc590a80_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55e8bc590b50_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55e8bc5909c0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55e8bc590a80_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x55e8bc590b50_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55e8bc5909c0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55e8bc590a80_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x55e8bc590b50_0, 0, 1;
+    %delay 40, 0;
+    %vpi_call 2 34 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "/home/david/repos/verilog_fundamentals/demo10/top.v";
