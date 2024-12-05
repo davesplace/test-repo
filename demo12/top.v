@@ -1,36 +1,43 @@
-//declare the 4-to-1 multiplexor
-module fadder32 (
-    //32 bit full adder that will perform a bitwise add on two 32bit numbers along with a carry in
-    //and will output the 32-bit sum and a carry out digit
-    output [31:0] sum,
-    output c_out,
-    input [31:0] a, b,
-    input c  
-);
-assign {c_out, sum} = a + b + c; //combines c_out and sum and defines them as the expression a + b + c
-
-endmodule
-
 module top;
 
-    reg [31:0] a, b;
-    reg cin;
-    
-    wire [31:0] out;
-    wire cout;
-    
-    fadder32 U0(out, cout, a, b, cin);
+    reg [3:0] a, b;
+
+    wire equal;
+    wire notEqual;
+    wire caseEqual;
+    wire caseNotEqual;
+    wire greaterThan;
+    wire lessThan;
+    wire greaterThanOrEqual;
+    wire lessThanOrEqual;
+
+    assign equal = (a == b);
+    assign notEqual = (a != b);
+    assign caseEqual = (a === b); 
+    assign caseNotEqual = (a !== b);
+    assign greaterThan = (a > b);
+    assign lessThan = (a < b);
+    assign greaterThanOrEqual = (a >= b);
+    assign lessThanOrEqual = (a <= b);
 
     initial begin
-        $display("Time, a,b,cin,cout,out");
-        $monitor($time, ", %d, %d, %d, %d, %d", a, b, cin, cout, out);
+        $monitor("(a == b) %b\n(a != b) = %b\n(a === b) %b\n(a !== b) = %b\n(a > b) =  %b\n(a < b) = %b\n(a >= b) %b\n(a <= b) = %b\n",
+        equal, notEqual, caseEqual, caseNotEqual, greaterThan, lessThan, greaterThanOrEqual, lessThanOrEqual);
     end
 
     initial begin
-        a=1;b=0;cin=0;
-        #10 a=128;b=64;cin=1;
-        #10 a=33;b=89;cin=0;
-        #10 a=255;b=89;cin=0;
+        a=4;b=3;
+        $display("a = %b b = %b",a,b);
+
+        #10 b=4;
+        $display("a = %b b = %b",a,b);
+        
+        #10 a=4'bxz1x; b=4'bxz1x;
+        $display("a = %b b = %b",a,b);
+
+        #10 a=4'bxz1x; b=4'bx11x;
+        $display("a = %b b = %b",a,b);
+
         #50 $finish();
     end
 

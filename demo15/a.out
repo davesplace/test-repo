@@ -1,0 +1,93 @@
+#! /usr/local/bin/vvp
+:ivl_version "13.0 (devel)" "(s20221226-399-g151a14dfc)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/local/lib/ivl/system.vpi";
+:vpi_module "/usr/local/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/local/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/local/lib/ivl/v2005_math.vpi";
+:vpi_module "/usr/local/lib/ivl/va_math.vpi";
+S_0x5586a45da480 .scope module, "top" "top" 2 1;
+ .timescale 0 0;
+v0x5586a45d4e50_0 .var "A", 3 0;
+v0x5586a45d4ef0_0 .var/s "A_signed", 3 0;
+v0x5586a4602b30_0 .var "n", 3 0;
+v0x5586a4602bf0_0 .net "shiftLeft", 3 0, L_0x5586a46033e0;  1 drivers
+v0x5586a4602cd0_0 .net "shiftLeftArith", 3 0, L_0x5586a4603570;  1 drivers
+v0x5586a4602e00_0 .net "shiftLeftArithSigned", 3 0, L_0x5586a46038c0;  1 drivers
+v0x5586a4602ee0_0 .net "shiftLeftSigned", 3 0, L_0x5586a4603710;  1 drivers
+v0x5586a4602fc0_0 .net "shiftRight", 3 0, L_0x5586a4603340;  1 drivers
+v0x5586a46030a0_0 .net "shiftRightArith", 3 0, L_0x5586a46034d0;  1 drivers
+v0x5586a4603180_0 .net "shiftRightArithSigned", 3 0, L_0x5586a4603820;  1 drivers
+v0x5586a4603260_0 .net "shiftRightSigned", 3 0, L_0x5586a4603640;  1 drivers
+L_0x5586a4603340 .shift/r 4, v0x5586a45d4e50_0, v0x5586a4602b30_0;
+L_0x5586a46033e0 .shift/l 4, v0x5586a45d4e50_0, v0x5586a4602b30_0;
+L_0x5586a46034d0 .shift/r 4, v0x5586a45d4e50_0, v0x5586a4602b30_0;
+L_0x5586a4603570 .shift/l 4, v0x5586a45d4e50_0, v0x5586a4602b30_0;
+L_0x5586a4603640 .shift/r 4, v0x5586a45d4ef0_0, v0x5586a4602b30_0;
+L_0x5586a4603710 .shift/l 4, v0x5586a45d4ef0_0, v0x5586a4602b30_0;
+L_0x5586a4603820 .shift/rs 4, v0x5586a45d4ef0_0, v0x5586a4602b30_0;
+L_0x5586a46038c0 .shift/l 4, v0x5586a45d4ef0_0, v0x5586a4602b30_0;
+    .scope S_0x5586a45da480;
+T_0 ;
+    %vpi_call 2 26 "$monitor", "A >> n = %b\011A_signed >> n = %b\012A << n = %b\011A_signed << n = %b\012A >>> n = %b\011A >>> n = %b\012A <<< n = %b\011A_signed <<< n = %b\012", v0x5586a4602fc0_0, v0x5586a4603260_0, v0x5586a4602bf0_0, v0x5586a4602ee0_0, v0x5586a46030a0_0, v0x5586a4603180_0, v0x5586a4602cd0_0, v0x5586a4602e00_0 {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_0x5586a45da480;
+T_1 ;
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v0x5586a45d4e50_0, 0, 4;
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v0x5586a45d4ef0_0, 0, 4;
+    %pushi/vec4 1, 0, 4;
+    %store/vec4 v0x5586a4602b30_0, 0, 4;
+    %vpi_call 2 34 "$display", "A = %b\011A_signed = %b n = %b", v0x5586a45d4e50_0, v0x5586a45d4ef0_0, v0x5586a4602b30_0 {0 0 0};
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 4;
+    %store/vec4 v0x5586a45d4e50_0, 0, 4;
+    %pushi/vec4 1, 0, 4;
+    %store/vec4 v0x5586a45d4ef0_0, 0, 4;
+    %pushi/vec4 1, 0, 4;
+    %store/vec4 v0x5586a4602b30_0, 0, 4;
+    %vpi_call 2 40 "$display", "A = %b\011A_signed = %b n = %b", v0x5586a45d4e50_0, v0x5586a45d4ef0_0, v0x5586a4602b30_0 {0 0 0};
+    %delay 10, 0;
+    %pushi/vec4 2, 0, 4;
+    %store/vec4 v0x5586a45d4e50_0, 0, 4;
+    %pushi/vec4 2, 0, 4;
+    %store/vec4 v0x5586a45d4ef0_0, 0, 4;
+    %pushi/vec4 1, 0, 4;
+    %store/vec4 v0x5586a4602b30_0, 0, 4;
+    %vpi_call 2 46 "$display", "A = %b\011A_signed = %b n = %b", v0x5586a45d4e50_0, v0x5586a45d4ef0_0, v0x5586a4602b30_0 {0 0 0};
+    %delay 10, 0;
+    %pushi/vec4 3, 0, 4;
+    %store/vec4 v0x5586a45d4e50_0, 0, 4;
+    %pushi/vec4 3, 0, 4;
+    %store/vec4 v0x5586a45d4ef0_0, 0, 4;
+    %pushi/vec4 1, 0, 4;
+    %store/vec4 v0x5586a4602b30_0, 0, 4;
+    %vpi_call 2 52 "$display", "A = %b\011A_signed = %b n = %b", v0x5586a45d4e50_0, v0x5586a45d4ef0_0, v0x5586a4602b30_0 {0 0 0};
+    %delay 10, 0;
+    %pushi/vec4 13, 0, 4;
+    %store/vec4 v0x5586a45d4e50_0, 0, 4;
+    %pushi/vec4 13, 0, 4;
+    %store/vec4 v0x5586a45d4ef0_0, 0, 4;
+    %pushi/vec4 3, 0, 4;
+    %store/vec4 v0x5586a4602b30_0, 0, 4;
+    %vpi_call 2 58 "$display", "A = %b\011A_signed = %b n = %b", v0x5586a45d4e50_0, v0x5586a45d4ef0_0, v0x5586a4602b30_0 {0 0 0};
+    %delay 10, 0;
+    %pushi/vec4 11, 13, 4;
+    %store/vec4 v0x5586a45d4e50_0, 0, 4;
+    %pushi/vec4 11, 13, 4;
+    %store/vec4 v0x5586a45d4ef0_0, 0, 4;
+    %pushi/vec4 2, 0, 4;
+    %store/vec4 v0x5586a4602b30_0, 0, 4;
+    %vpi_call 2 64 "$display", "A = %b A_signed = %b n = %b", v0x5586a45d4e50_0, v0x5586a45d4ef0_0, v0x5586a4602b30_0 {0 0 0};
+    %delay 50, 0;
+    %vpi_call 2 66 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "/home/david/repos/verilog_fundamentals/demo15/top.v";

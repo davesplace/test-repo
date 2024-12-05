@@ -48,7 +48,7 @@ endmodule
 
 module example_module(input clk, input reset);
 reg [7:0] count = 0; // little bit-wise endian
-reg [0:7] count2 = 0; // bit bit-wise endian
+reg [0:7] count2 = 0; // big bit-wise endian
 reg enable = 1;
 //assign data2 = count
 assign data = count;
