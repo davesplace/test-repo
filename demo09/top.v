@@ -17,36 +17,36 @@ module mux4 (
 endmodule
 
 module top;
-    reg c0, c1, c2, c3;
-    reg s0, s1;
+    reg a, b, c, d;
+    reg S0, S1;
 
     wire out;
 
-    mux4 U1(out, c0, c1, c2, c3, s0, s1);
+    mux4 U1(out, a, b, c, d, S0, S1);
 
 
     initial begin
-        c0 = 1;
-        c1 = 0;
-        c2 = 1;
-        c3 = 0;
-        #1 $display ("c0 = %b, c1 = %b, c2 = %b, c3 = %b\n", c0, c1, c2, c3);
+        a=1;
+        b=1;
+        c=0;
+        d=1;
+        #1 $display ("a = %b, b = %b, c = %b, d = %b\n", a, b, c, d);
 
-        s0 = 0;
-        s1 = 0;
-        #1 $display ("s0 = %b, s1 = %b, out = %b\n",s0, s1, out);
+        S0 = 0;
+        S1 = 0;
+        #1 $display ("S0 = %b, S1 = %b, out = %b\n",S0, S1, out);
 
-        s0 = 1;
-        s1 = 0;
-        #1 $display ("s0 = %b, s1 = %b, out = %b\n",s0, s1, out);
+        S0 = 1;
+        S1 = 0;
+        #1 $display ("S0 = %b, S1 = %b, out = %b\n",S0, S1, out);
 
-        s0 = 0;
-        s1 = 1;
-        #1 $display ("s0 = %b, s1 = %b, out = %b\n",s0, s1, out);
+        S0 = 0;
+        S1 = 1;
+        #1 $display ("S0 = %b, S1 = %b, out = %b\n",S0, S1, out);
 
-        s0 = 1;
-        s1 = 1;
-        #1 $display ("s0 = %b, s1 = %b, out = %b\n",s0, s1, out);
+        S0 = 1;
+        S1 = 1;
+        #1 $display ("S0 = %b, S1 = %b, out = %b\n",S0, S1, out);
 
         
     end    

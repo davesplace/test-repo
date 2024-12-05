@@ -6,9 +6,11 @@ module top;
     reg y,y2,y3;
     wire z,z2,z3;
 
-    defparam U1.id_num = 1;
+    
     defparam U2.id_num = 2;
-    defparam U3.id_num = 3;
+    //defparam U2.version = 3;
+    defparam U3[0].id_num = 99;
+    
     //defparam U2.version = 4;  //
 
     initial begin
@@ -23,6 +25,6 @@ module top;
 
     my_module U1 (x,y,z);
     my_module U2 (x2,y2,z2);
-    my_module U3 (x3,y3,z3);
+    my_module U3 [3:0](x3,y3,z3);
 
 endmodule

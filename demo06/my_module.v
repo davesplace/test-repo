@@ -3,7 +3,7 @@ module my_module (
     input B,
     output Y
 );
-    parameter id_num = 1;
+    parameter id_num = 0;
     localparam version = 2;
 
     reg my_register;
